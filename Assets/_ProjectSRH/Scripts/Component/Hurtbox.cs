@@ -1,4 +1,5 @@
 using System.Collections;
+using DG.Tweening;
 using UnityEngine;
 
 public class Hurtbox : MonoBehaviour
@@ -32,7 +33,7 @@ public class Hurtbox : MonoBehaviour
 
 
             knockback = knockback.normalized * knockbackAmount;
-            body.AddForce(knockback, ForceMode2D.Impulse); 
+            body.transform.DOMove((Vector2)body.transform.position + knockback, 0.2f);
         }
     }
 

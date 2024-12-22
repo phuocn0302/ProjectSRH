@@ -1,4 +1,5 @@
 using System.Collections;
+using DG.Tweening;
 using UnityEngine;
 
 public class PlayerDashState : PlayerState 
@@ -20,7 +21,8 @@ public class PlayerDashState : PlayerState
         }
         
         if (anim) animator.Play(anim.name);
-
+        
+        spriteRenderer.transform.DOScaleY(0.2f, 0.5f);
         StartCoroutine(Dash());
     }
 
@@ -39,6 +41,8 @@ public class PlayerDashState : PlayerState
 
         body.linearVelocity = Time.fixedDeltaTime * dashSpeed * dashDirection;
         yield return new WaitForSeconds(dashTime);
+        
+        spriteRenderer.transform.DOScaleY(1, 0.5f);
         body.linearVelocity = Time.fixedDeltaTime * dashSpeed * dashDirection;
 
         StartCoroutine(DashCooldown());

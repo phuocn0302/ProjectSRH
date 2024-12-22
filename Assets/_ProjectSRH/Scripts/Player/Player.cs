@@ -1,4 +1,5 @@
 using System.Collections.Generic;
+using DG.Tweening;
 using UnityEngine;
 
 
@@ -55,6 +56,9 @@ public class Player : PlayerCore
         FacingDirection = Vector2.down;
         FacingDirectionStr = "Down";
         stateMachine.SetState(IdleState);
+
+        spriteRenderer.transform.localScale = Vector3.zero;
+        spriteRenderer.transform.DOScale(1,1);
     }
     
     private void Update()

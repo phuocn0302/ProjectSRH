@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using DG.Tweening;
 using UnityEngine;
 
 public class PlayerDrone : MonoBehaviour
@@ -43,6 +44,8 @@ public class PlayerDrone : MonoBehaviour
             {Vector2.left, leftSprite},
             {Vector2.right, rightSprite}
         };
+        spriteRenderer.transform.localScale = Vector2.zero;
+        spriteRenderer.transform.DOScale(1,1);
     }
 
     private void Update()
