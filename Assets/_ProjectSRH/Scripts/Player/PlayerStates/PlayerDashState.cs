@@ -24,10 +24,6 @@ public class PlayerDashState : PlayerState
         StartCoroutine(Dash());
     }
 
-    public override void FrameUpdate()
-    {
-        
-    }
 
     public override void Exit()
     {
@@ -55,5 +51,3 @@ public class PlayerDashState : PlayerState
         canDash = true;
     }
 }
-
-

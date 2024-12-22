@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using NUnit.Framework;
 using UnityEngine;
 
 public class PlayerMeleeState : PlayerState 
@@ -11,6 +12,8 @@ public class PlayerMeleeState : PlayerState
     public GameObject slashContainer;
     private int maxHitCombo;
     private int hitCount;
+    private int slashTypeCount = 0;
+    private bool isAttacking = false;
     
     protected readonly Dictionary<Vector2, string> directionStrs = new()
     {
@@ -28,40 +31,25 @@ public class PlayerMeleeState : PlayerState
     public override void Enter()
     {
         hitCount = 1;
+        if (isAttacking) return;
         StartCoroutine(Attack());
-    }
-
-    public override void PhysicsUpdate()
-    {
-        // body.velocity = Time.fixedDeltaTime * moveSpeed * 0.1f * moveInput; 
     }
 
     public override void Exit()
     {
+        isAttacking = false;
         IsComplete = true;
     }
 
     private IEnumerator Attack()
     {
-        if (hitCount >= maxHitCombo) 
-        {
+        isAttacking = true;
+        if (hitCount == maxHitCombo) 
             hitCount = 1;
-        }
 
         slashContainer.transform.up = -mouseDirection;
 
-        string playerAnim = "Player";
-
-        string[] slashType = {"Slash", "Chop"};
-        string randomType = slashType[Random.Range(0,2)];
-        playerAnim += randomType;
-
-        if (randomType == "Slash" && hitCount % 2 != 0) 
-            playerAnim += "Revert";
-            
-        playerAnim += MouseDirectionToString();
-        
-        animator.Play(playerAnim);
+        SetPlayerAnimation();
         slashAnimator.Play("Slash" + hitCount++.ToString());
         
         body.linearVelocity = Time.fixedDeltaTime * moveSpeed * mouseDirection;
@@ -83,6 +71,23 @@ public class PlayerMeleeState : PlayerState
             yield return null;
         }
         Exit();
+    }
+
+    private void SetPlayerAnimation()
+    {
+        string playerAnim = "Player";
+
+        string[] slashType = {"Slash", "Chop"};
+        string chooseType = slashType[(slashTypeCount++) % 2];
+
+        playerAnim += chooseType;
+
+        if (chooseType == "Slash" && hitCount % 2 != 0) 
+            playerAnim += "Revert";
+            
+        playerAnim += MouseDirectionToString();
+        
+        animator.Play(playerAnim);
     }
 
     private string MouseDirectionToString()

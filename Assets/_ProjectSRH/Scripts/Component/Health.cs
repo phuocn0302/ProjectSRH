@@ -1,3 +1,4 @@
+using System;
 using UnityEngine;
 
 public class Health : MonoBehaviour
@@ -9,6 +10,9 @@ public class Health : MonoBehaviour
     public GameObject deathEffect;
 
     private Animator animator;
+    public event Action<float> OnHealthChange;
+    public event Action OnHealthDepleted;
+    public event Action OnHealthIncreased;
 
     private void Awake()
     {
@@ -22,11 +26,19 @@ public class Health : MonoBehaviour
 
     public void TakeDamage(float damageAmount)
     {
-        CurrentHealth -= damageAmount;
-        if (CurrentHealth <= 0)
-        {
+        CurrentHealth = Mathf.Clamp(CurrentHealth - damageAmount, 0, MaxHealth);
+        OnHealthDepleted?.Invoke();
+        OnHealthChange?.Invoke(CurrentHealth);
+
+        if (CurrentHealth == 0)
             Die();
-        }
+    }
+
+    public void Heal(float healAmount)
+    {
+        CurrentHealth = Mathf.Clamp(CurrentHealth + healAmount, 0, MaxHealth);
+        OnHealthIncreased?.Invoke();
+        OnHealthChange?.Invoke(CurrentHealth);
     }
 
     private void Die()

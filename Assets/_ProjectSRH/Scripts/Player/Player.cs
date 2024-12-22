@@ -10,6 +10,9 @@ public class Player : PlayerCore
     [field: SerializeField] public PlayerState DashState {get; private set;}
     [field: SerializeField] public PlayerState MeleeState {get; private set;}
 
+    public GameObject playerDrone;
+    public State CurrentState => stateMachine.state; 
+
     protected readonly Dictionary<Vector2, string> directionStrs = new()
     {
         {Vector2.up, "Up"},
@@ -18,10 +21,12 @@ public class Player : PlayerCore
         {Vector2.right, "Right"}
     };
 
-    public GameObject playerDrone;
+    private Health health;
+
 
     private void Awake()
     {
+        health = GetComponent<Health>();
         spriteRenderer = GetComponent<SpriteRenderer>();
         body = GetComponent<Rigidbody2D>();
         bodyCollider = GetComponent<Collider2D>();
@@ -31,6 +36,18 @@ public class Player : PlayerCore
         
         GameObject playerDroneObj = GameObject.FindGameObjectWithTag("PlayerDrone");
         if (!playerDroneObj) Instantiate(playerDrone);
+    }
+
+    private void OnEnable()
+    {
+        if (health)
+            health.OnHealthChange += HandleHealthChange;
+    }
+
+    private void OnDisable() 
+    {
+        if (health)
+            health.OnHealthChange -= HandleHealthChange;
     }
 
     private void Start()
@@ -75,13 +92,13 @@ public class Player : PlayerCore
             Input.GetAxisRaw("Vertical")
             ).normalized;
 
-        if (Input.GetKeyDown(KeyCode.Space))
+        if (Input.GetKeyDown(KeyCode.Space) && CurrentState != MeleeState)
         {
             stateMachine.SetState(DashState);
             return;
         }
 
-        if (Input.GetMouseButton(0) && stateMachine.state != DashState)
+        if (Input.GetMouseButtonDown(0) && CurrentState != DashState)
         {
             stateMachine.SetState(MeleeState);
             return;
@@ -130,6 +147,11 @@ public class Player : PlayerCore
         Vector3 mousePos = Input.mousePosition;
         Vector3 playerScreenPoint = Camera.main.WorldToScreenPoint(transform.position);
         mouseDirection = (mousePos - playerScreenPoint).normalized;
+    }
+
+    private void HandleHealthChange(float amount)
+    {
+        Debug.Log("Health: " + amount);
     }
 }
 
