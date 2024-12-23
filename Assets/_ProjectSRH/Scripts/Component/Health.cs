@@ -1,5 +1,5 @@
 using System;
-using DG.Tweening;
+using PrimeTween;
 using UnityEngine;
 
 public class Health : MonoBehaviour
@@ -14,6 +14,7 @@ public class Health : MonoBehaviour
     public event Action<float> OnHealthChange;
     public event Action OnHealthDepleted;
     public event Action OnHealthIncreased;
+    public event Action OnObjectDie;
 
     private void Awake()
     {
@@ -31,13 +32,13 @@ public class Health : MonoBehaviour
         OnHealthDepleted?.Invoke();
         OnHealthChange?.Invoke(CurrentHealth);
 
-        TryGetComponent<Rigidbody2D>(out var body);
-        if (body) body.transform.DOScale(1.2f, 0.1f).OnComplete(() => {
-            body.transform.DOScale(1f, 0.1f);
-        }); 
-
         if (CurrentHealth == 0)
             Die();
+
+        // TryGetComponent<Rigidbody2D>(out var body);
+        // if (body) Tween.Scale(body.transform, 1.2f, 0.1f).OnComplete(() => {
+        //     Tween.Scale(body.transform, 1f, 0.1f);
+        // });
     }
 
     public void Heal(float healAmount)
@@ -49,11 +50,17 @@ public class Health : MonoBehaviour
 
     private void Die()
     {
-        Debug.Log(gameObject.name + " Died!");
+        OnObjectDie?.Invoke();
 
         if (deathAnim) animator.Play(deathAnim.name);
         if (deathEffect) Instantiate(deathEffect, transform.position, Quaternion.identity);
         
+        Invoke(nameof(DestroyObject), deathAnim? deathAnim.length : 0);
+        
+    }
+
+    private void DestroyObject()
+    {
         Destroy(gameObject);
     }
 

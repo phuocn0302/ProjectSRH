@@ -796,8 +796,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4f63158d7be4d304a8539d3e2755c79b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  numberOfBullets: 34
+  numberOfBullets: 1
   bulletType: {fileID: 8179519435909719552, guid: e380ad855f571204cbc9765cfaed66a8, type: 3}
+  shootDelay: 1
+  spin: 0
+  spinDegree: 10
 --- !u!4 &2024213155 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4900382307041902410, guid: 1c132d65c2e5f9146838449c4f26d4ab, type: 3}
@@ -944,10 +947,6 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 617020427709609902, guid: 1ff3d162b5c55574c8428ecbd6bf09e4, type: 3}
-      propertyPath: m_Layer
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 1270639606906185116, guid: 1ff3d162b5c55574c8428ecbd6bf09e4, type: 3}
       propertyPath: m_LocalPosition.x
       value: -0.000000026077032
@@ -991,18 +990,6 @@ PrefabInstance:
     - target: {fileID: 4127184826998233520, guid: 1ff3d162b5c55574c8428ecbd6bf09e4, type: 3}
       propertyPath: m_Name
       value: Player
-      objectReference: {fileID: 0}
-    - target: {fileID: 6026908150025621107, guid: 1ff3d162b5c55574c8428ecbd6bf09e4, type: 3}
-      propertyPath: m_SortingOrder
-      value: 100
-      objectReference: {fileID: 0}
-    - target: {fileID: 6828034830148975702, guid: 1ff3d162b5c55574c8428ecbd6bf09e4, type: 3}
-      propertyPath: <KnockbackAmount>k__BackingField
-      value: 0.5
-      objectReference: {fileID: 0}
-    - target: {fileID: 9137568010313042394, guid: 1ff3d162b5c55574c8428ecbd6bf09e4, type: 3}
-      propertyPath: iframeTime
-      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

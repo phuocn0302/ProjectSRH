@@ -1,6 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
-using DG.Tweening;
+using PrimeTween;
 using UnityEngine;
 
 public class PlayerDrone : MonoBehaviour
@@ -18,9 +18,11 @@ public class PlayerDrone : MonoBehaviour
     private float currentAngle;
     public GameObject playerObj;
     public Player player;
+
     private Vector2 defaultPosition;
     private SpriteRenderer spriteRenderer;
     private Dictionary<Vector2, Sprite> spriteMap; 
+    private Health playerHealth;
 
     private bool isShooting;
     private bool canShoot = true;
@@ -30,7 +32,15 @@ public class PlayerDrone : MonoBehaviour
         spriteRenderer = GetComponent<SpriteRenderer>();
         playerObj = GameObject.FindGameObjectWithTag("Player");
         player = playerObj.GetComponent<Player>();
+        playerHealth = playerObj.GetComponent<Health>(); 
+    }
 
+    private void OnEnable()
+    {
+        if (playerHealth)
+        {
+            playerHealth.OnObjectDie += Die;
+        }
     }
 
     private void Start()
@@ -45,7 +55,7 @@ public class PlayerDrone : MonoBehaviour
             {Vector2.right, rightSprite}
         };
         spriteRenderer.transform.localScale = Vector2.zero;
-        spriteRenderer.transform.DOScale(1,1);
+        Tween.Scale(spriteRenderer.transform, 1f, 0.5f);
     }
 
     private void Update()
@@ -119,6 +129,13 @@ public class PlayerDrone : MonoBehaviour
             }
         }
         return Vector2.down;
+    }
+
+    private void Die()
+    {
+        Tween.Scale(this.transform, 1.2f, 0f, 0.5f).OnComplete(() => {
+            Destroy(gameObject);
+        });
     }
 
 }

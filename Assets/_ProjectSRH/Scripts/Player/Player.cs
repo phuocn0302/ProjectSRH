@@ -1,5 +1,5 @@
 using System.Collections.Generic;
-using DG.Tweening;
+using PrimeTween;
 using UnityEngine;
 
 
@@ -42,13 +42,23 @@ public class Player : PlayerCore
     private void OnEnable()
     {
         if (health)
+        {
             health.OnHealthChange += HandleHealthChange;
+            health.OnHealthDepleted += HandleHealthDepleted;
+            health.OnObjectDie += HandlePlayerDie;
+        }
+            
     }
 
     private void OnDisable() 
     {
         if (health)
+        {
             health.OnHealthChange -= HandleHealthChange;
+            health.OnHealthDepleted -= HandleHealthDepleted;
+            health.OnObjectDie -= HandlePlayerDie;
+        }
+            
     }
 
     private void Start()
@@ -58,7 +68,7 @@ public class Player : PlayerCore
         stateMachine.SetState(IdleState);
 
         spriteRenderer.transform.localScale = Vector3.zero;
-        spriteRenderer.transform.DOScale(1,1);
+        Tween.Scale(spriteRenderer.transform, 1f, 0.5f);
     }
     
     private void Update()
@@ -156,6 +166,21 @@ public class Player : PlayerCore
     private void HandleHealthChange(float amount)
     {
         Debug.Log("Health: " + amount);
+    }
+    
+    private void HandleHealthDepleted()
+    {
+        Debug.Log("Ouch");
+        Time.timeScale = 0;
+        Tween.GlobalTimeScale(0, 1, 1f);
+        Tween.ShakeCamera(GameObject.FindFirstObjectByType<Camera>(), 0.5f);
+    }
+
+    private void HandlePlayerDie()
+    {
+        stateMachine.SetState(IdleState, true);
+        this.enabled = false;
+        Tween.GlobalTimeScale(1, 0.5f, 1f);
     }
 }
 

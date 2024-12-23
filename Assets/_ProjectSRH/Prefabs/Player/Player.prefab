@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 5234769577879005580}
   - component: {fileID: 4224896986514570897}
   - component: {fileID: 6343362037350303534}
-  m_Layer: 6
+  m_Layer: 0
   m_Name: MouseDirectionIndicator
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -401,7 +401,7 @@ MonoBehaviour:
   <DamageRange>k__BackingField: {x: 7, y: 14}
   <CritChance>k__BackingField: 0
   <CritMultiplier>k__BackingField: 1.5
-  <KnockbackAmount>k__BackingField: 1
+  <KnockbackAmount>k__BackingField: 0.5
   target:
     serializedVersion: 2
     m_Bits: 384
@@ -489,7 +489,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 100
   m_Sprite: {fileID: 1579984812, guid: c7ef863872f76134481235ed586255ff, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -628,7 +628,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   <MaxHealth>k__BackingField: 10
   <CurrentHealth>k__BackingField: 0
-  deathAnim: {fileID: 0}
+  deathAnim: {fileID: 7400000, guid: 0ac44bfcb6ed5a547b35cdf994b341a6, type: 2}
   deathEffect: {fileID: 0}
 --- !u!1 &6977516507967800243
 GameObject:
@@ -901,6 +901,10 @@ PrefabInstance:
     - target: {fileID: 4900382307041902410, guid: 1c132d65c2e5f9146838449c4f26d4ab, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7209525876693339694, guid: 1c132d65c2e5f9146838449c4f26d4ab, type: 3}
+      propertyPath: iframeTime
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

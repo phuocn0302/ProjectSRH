@@ -1,5 +1,5 @@
 using System.Collections;
-using DG.Tweening;
+using PrimeTween;
 using UnityEngine;
 
 public class Hurtbox : MonoBehaviour
@@ -27,10 +27,10 @@ public class Hurtbox : MonoBehaviour
         if (!canBeKnockback) return;
         if (transform.parent.TryGetComponent<Rigidbody2D>(out var body)) 
         {
-            Vector2 knockback = transform.position - knockbackForce.position;
+            Vector3 knockback = transform.position - knockbackForce.position;
 
             knockback = knockback.normalized * knockbackAmount;
-            body.transform.DOMove((Vector2)body.transform.position + knockback, 0.5f);
+            Tween.Position(body.transform, body.transform.position + knockback, 0.5f);
         }
     }
 
