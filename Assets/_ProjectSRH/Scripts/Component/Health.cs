@@ -35,10 +35,8 @@ public class Health : MonoBehaviour
         if (CurrentHealth == 0)
             Die();
 
-        // TryGetComponent<Rigidbody2D>(out var body);
-        // if (body) Tween.Scale(body.transform, 1.2f, 0.1f).OnComplete(() => {
-        //     Tween.Scale(body.transform, 1f, 0.1f);
-        // });
+        TryGetComponent<Rigidbody2D>(out var body);
+        if (body) Tween.Scale(body.transform, 1.1f, 1f, 0.5f);
     }
 
     public void Heal(float healAmount)
