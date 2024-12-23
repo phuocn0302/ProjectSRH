@@ -36,8 +36,8 @@ public class Hitbox : MonoBehaviour
                 Debug.Log("Critical Hit!");
             }
 
-            hurtbox.TakeDamage(damage);
             hurtbox.TakeKnockback(transform, KnockbackAmount);
+            hurtbox.TakeDamage(damage);
         }
     }
 

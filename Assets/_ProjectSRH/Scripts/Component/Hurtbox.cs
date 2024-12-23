@@ -28,12 +28,9 @@ public class Hurtbox : MonoBehaviour
         if (transform.parent.TryGetComponent<Rigidbody2D>(out var body)) 
         {
             Vector2 knockback = transform.position - knockbackForce.position;
-            if (body.linearVelocity != Vector2.zero)
-                knockback -= body.linearVelocity;
-
 
             knockback = knockback.normalized * knockbackAmount;
-            body.transform.DOMove((Vector2)body.transform.position + knockback, 0.2f);
+            body.transform.DOMove((Vector2)body.transform.position + knockback, 0.5f);
         }
     }
 
