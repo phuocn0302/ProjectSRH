@@ -53,13 +53,7 @@ public class Health : MonoBehaviour
         if (deathAnim) animator.Play(deathAnim.name);
         if (deathEffect) Instantiate(deathEffect, transform.position, Quaternion.identity);
         
-        Invoke(nameof(DestroyObject), deathAnim? deathAnim.length : 0);
+        Destroy(gameObject, deathAnim? deathAnim.length : 0);
         
     }
-
-    private void DestroyObject()
-    {
-        Destroy(gameObject);
-    }
-
 }

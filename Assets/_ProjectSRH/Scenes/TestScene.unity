@@ -129,6 +129,37 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 4900382307041902410, guid: 1c132d65c2e5f9146838449c4f26d4ab, type: 3}
   m_PrefabInstance: {fileID: 329964521}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &324433013
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 324433014}
+  m_Layer: 0
+  m_Name: HomingProjectile
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 0
+--- !u!4 &324433014
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 324433013}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0.80855936, y: 0.23494053, z: 0.06331647}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &329964521
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1006,3 +1037,4 @@ SceneRoots:
   - {fileID: 2119061072}
   - {fileID: 1809611482}
   - {fileID: 1960073595}
+  - {fileID: 324433014}

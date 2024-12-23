@@ -13,7 +13,7 @@ public class PlayerDrone : MonoBehaviour
     public Sprite leftSprite;
     public Sprite rightSprite;
     public float shootDelay = 0.1f;
-    public PlayerProjectile projectile;
+    public Projectile projectile;
 
     private float currentAngle;
     public GameObject playerObj;
@@ -98,8 +98,8 @@ public class PlayerDrone : MonoBehaviour
         canShoot = false;
         
         //Shoot
-        PlayerProjectile p = Instantiate(projectile, transform.position, Quaternion.identity);
-        p.GetComponent<PlayerProjectile>().transform.right = GetMouseDirection();
+        Projectile p = Instantiate(projectile, transform.position, Quaternion.identity);
+        p.GetComponent<Projectile>().transform.right = GetMouseDirection();
         StartCoroutine(ShootCooldown());
     }
 

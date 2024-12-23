@@ -1,10 +1,10 @@
 using System.Collections;
 using UnityEngine;
 
-public class CircularBulletSpawner : MonoBehaviour
+public class CircularProjectileSpawner : MonoBehaviour
 {
     public int numberOfBullets;
-    public GameObject bulletType;
+    public Projectile bulletType;
 
     public float shootDelay = 1f;
 

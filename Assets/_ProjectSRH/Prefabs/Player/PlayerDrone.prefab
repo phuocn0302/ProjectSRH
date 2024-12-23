@@ -53,7 +53,7 @@ MonoBehaviour:
   leftSprite: {fileID: -566429061, guid: ce9911e7e5a7c8f4aa33843fe38d29f8, type: 3}
   rightSprite: {fileID: -781588724, guid: ce9911e7e5a7c8f4aa33843fe38d29f8, type: 3}
   shootDelay: 0.1
-  projectile: {fileID: 8543566496141551701, guid: 41fcc69f2599f05468724a2ff65a673e, type: 3}
+  projectile: {fileID: 7983350819293979212, guid: 41fcc69f2599f05468724a2ff65a673e, type: 3}
   playerObj: {fileID: 0}
   player: {fileID: 0}
 --- !u!212 &2104431197309649263

@@ -9,9 +9,9 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 6897395610649768352}
-  - component: {fileID: 8543566496141551701}
   - component: {fileID: 8759565427423741947}
   - component: {fileID: 7512479069171417652}
+  - component: {fileID: 7983350819293979212}
   - component: {fileID: 3603208206392603325}
   m_Layer: 0
   m_Name: PlayerProjectile
@@ -35,20 +35,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &8543566496141551701
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6338292862170099566}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a6eb66900145d1f40b5abbd6143d2d82, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  lifeTime: 0.3
-  speed: 50
 --- !u!212 &8759565427423741947
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -150,6 +136,20 @@ BoxCollider2D:
   m_AutoTiling: 0
   m_Size: {x: 0.7, y: 0.12}
   m_EdgeRadius: 0
+--- !u!114 &7983350819293979212
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6338292862170099566}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0d3352e28c3b2614b8175e8b66da4354, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  lifeTime: 1
+  speed: 50
 --- !u!114 &3603208206392603325
 MonoBehaviour:
   m_ObjectHideFlags: 0
