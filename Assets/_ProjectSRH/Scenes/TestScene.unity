@@ -752,6 +752,52 @@ Transform:
   - {fileID: 122777613}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1960073594
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1960073595}
+  - component: {fileID: 1960073596}
+  m_Layer: 0
+  m_Name: CircularBulletSpawner
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1960073595
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1960073594}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1960073596
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1960073594}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4f63158d7be4d304a8539d3e2755c79b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  numberOfBullets: 34
+  bulletType: {fileID: 8179519435909719552, guid: e380ad855f571204cbc9765cfaed66a8, type: 3}
 --- !u!4 &2024213155 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4900382307041902410, guid: 1c132d65c2e5f9146838449c4f26d4ab, type: 3}
@@ -954,6 +1000,10 @@ PrefabInstance:
       propertyPath: <KnockbackAmount>k__BackingField
       value: 0.5
       objectReference: {fileID: 0}
+    - target: {fileID: 9137568010313042394, guid: 1ff3d162b5c55574c8428ecbd6bf09e4, type: 3}
+      propertyPath: iframeTime
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -968,3 +1018,4 @@ SceneRoots:
   - {fileID: 1273691381}
   - {fileID: 2119061072}
   - {fileID: 1809611482}
+  - {fileID: 1960073595}
