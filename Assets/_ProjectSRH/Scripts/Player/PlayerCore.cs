@@ -12,6 +12,7 @@ public class PlayerCore : MonoBehaviour
     public float moveSpeed;
     public Vector2 moveInput;
     public Vector2 mouseDirection;
+    public GhostEffect ghostEffect;
 
     [field: SerializeField] public Vector2 FacingDirection {get; protected set;} = Vector2.down;
     [field: SerializeField] public string FacingDirectionStr {get; protected set;} = "Down";

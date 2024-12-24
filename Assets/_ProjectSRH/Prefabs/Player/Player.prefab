@@ -417,6 +417,7 @@ GameObject:
   - component: {fileID: 6026908150025621107}
   - component: {fileID: 1944297544254694375}
   - component: {fileID: 7102252374686990928}
+  - component: {fileID: 6155599549900532928}
   - component: {fileID: 872337424840448059}
   - component: {fileID: 1660599714120192248}
   - component: {fileID: 1743419111417000423}
@@ -564,6 +565,21 @@ CircleCollider2D:
   m_CompositeOrder: 0
   m_Offset: {x: 0, y: -0.4}
   m_Radius: 0.4
+--- !u!114 &6155599549900532928
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4127184826998233520}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ac19fd412fa0e9042b7451b733c13208, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  active: 1
+  numberOfGhost: 10
+  duration: 0
 --- !u!95 &872337424840448059
 Animator:
   serializedVersion: 7
@@ -607,6 +623,7 @@ MonoBehaviour:
   moveSpeed: 400
   moveInput: {x: 0, y: 0}
   mouseDirection: {x: 0, y: 0}
+  ghostEffect: {fileID: 0}
   <FacingDirection>k__BackingField: {x: 0, y: 0}
   <FacingDirectionStr>k__BackingField: 
   <IdleState>k__BackingField: {fileID: 8938201239452959304}

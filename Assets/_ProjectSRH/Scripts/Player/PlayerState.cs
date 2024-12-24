@@ -13,6 +13,7 @@ public class PlayerState : State
     public float moveSpeed => core.moveSpeed;
     public Vector2 moveInput => core.moveInput;
     public Vector2 mouseDirection => core.mouseDirection;
+    public GhostEffect ghostEffect => core.ghostEffect;
 
     
     public Vector2 FacingDirection => core.FacingDirection;

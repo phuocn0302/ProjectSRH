@@ -794,7 +794,7 @@ GameObject:
   - component: {fileID: 1960073595}
   - component: {fileID: 1960073596}
   m_Layer: 0
-  m_Name: CircularBulletSpawner
+  m_Name: CircularProjectileSpawner
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -828,7 +828,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   numberOfBullets: 1
-  bulletType: {fileID: 8179519435909719552, guid: e380ad855f571204cbc9765cfaed66a8, type: 3}
+  bulletType: {fileID: 6792098917000971075, guid: e380ad855f571204cbc9765cfaed66a8, type: 3}
   shootDelay: 1
   spin: 0
   spinDegree: 10
@@ -980,11 +980,11 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 1270639606906185116, guid: 1ff3d162b5c55574c8428ecbd6bf09e4, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -0.000000026077032
+      value: 3.5
       objectReference: {fileID: 0}
     - target: {fileID: 1270639606906185116, guid: 1ff3d162b5c55574c8428ecbd6bf09e4, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0.71674997
+      value: 2.71875
       objectReference: {fileID: 0}
     - target: {fileID: 1270639606906185116, guid: 1ff3d162b5c55574c8428ecbd6bf09e4, type: 3}
       propertyPath: m_LocalPosition.z
@@ -1021,6 +1021,26 @@ PrefabInstance:
     - target: {fileID: 4127184826998233520, guid: 1ff3d162b5c55574c8428ecbd6bf09e4, type: 3}
       propertyPath: m_Name
       value: Player
+      objectReference: {fileID: 0}
+    - target: {fileID: 6155599549900532928, guid: 1ff3d162b5c55574c8428ecbd6bf09e4, type: 3}
+      propertyPath: ghostColor.a
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6155599549900532928, guid: 1ff3d162b5c55574c8428ecbd6bf09e4, type: 3}
+      propertyPath: ghostColor.b
+      value: 0.34117648
+      objectReference: {fileID: 0}
+    - target: {fileID: 6155599549900532928, guid: 1ff3d162b5c55574c8428ecbd6bf09e4, type: 3}
+      propertyPath: ghostColor.g
+      value: 0.23529412
+      objectReference: {fileID: 0}
+    - target: {fileID: 6155599549900532928, guid: 1ff3d162b5c55574c8428ecbd6bf09e4, type: 3}
+      propertyPath: ghostColor.r
+      value: 0.2
+      objectReference: {fileID: 0}
+    - target: {fileID: 6155599549900532928, guid: 1ff3d162b5c55574c8428ecbd6bf09e4, type: 3}
+      propertyPath: ghostPoolSize
+      value: 8
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

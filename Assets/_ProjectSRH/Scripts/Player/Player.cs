@@ -32,7 +32,7 @@ public class Player : PlayerCore
         body = GetComponent<Rigidbody2D>();
         bodyCollider = GetComponent<Collider2D>();
         animator = GetComponent<Animator>();
-
+        ghostEffect = GetComponent<GhostEffect>();
         SetupInstances();
         
         GameObject playerDroneObj = GameObject.FindGameObjectWithTag("PlayerDrone");

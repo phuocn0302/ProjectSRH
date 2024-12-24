@@ -34,9 +34,10 @@ public class PlayerDashState : PlayerState
     public IEnumerator Dash()
     {
         canDash = false;
-        Vector2 dashDirection = moveInput;
+        Vector2 dashDirection = (moveInput != Vector2.zero) ? moveInput : FacingDirection;
         hurtbox.enabled = false;
 
+        StartCoroutine(ghostEffect.ShowGhost(5, dashTime));
         body.linearVelocity = Time.fixedDeltaTime * dashSpeed * dashDirection;
         yield return new WaitForSeconds(dashTime);
     
