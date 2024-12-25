@@ -54,6 +54,7 @@ public class PlayerMeleeState : PlayerState
         
         body.linearVelocity = Time.fixedDeltaTime * moveSpeed * mouseDirection;
         yield return new WaitForSeconds(0.05f);
+        StartCoroutine(ghostEffect.ShowGhost(1, 0f, 1f));
         body.linearVelocity = Vector2.zero;
 
         yield return new WaitForSeconds(hitDelayTime);

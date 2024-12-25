@@ -6,7 +6,6 @@ using UnityEngine;
 public class GhostEffect : MonoBehaviour
 {
     public int ghostPoolSize = 10;
-    public float ghostFadeTime = 0.4f;
     public Material ghostMaterial;
 
     private SpriteRenderer spriteRenderer;
@@ -29,7 +28,7 @@ public class GhostEffect : MonoBehaviour
         }
     }
 
-    public IEnumerator ShowGhost(int _numberOfGhost, float _duration)
+    public IEnumerator ShowGhost(int _numberOfGhost, float _duration, float _ghostFadeTime)
     {
         if (_numberOfGhost > ghostPool.Count) AddToPool(_numberOfGhost - ghostPool.Count);
 
@@ -49,7 +48,7 @@ public class GhostEffect : MonoBehaviour
             s.sprite = spriteRenderer.sprite;
             s.color = Color.white;
 
-            Tween.Alpha(s, 0, ghostFadeTime).OnComplete(() => {
+            Tween.Alpha(s, 0, _ghostFadeTime).OnComplete(() => {
                 g.SetActive(false);
                 ghostPool.Enqueue(g);
             });

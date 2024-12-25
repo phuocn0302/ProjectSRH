@@ -37,7 +37,7 @@ public class PlayerDashState : PlayerState
         Vector2 dashDirection = (moveInput != Vector2.zero) ? moveInput : FacingDirection;
         hurtbox.enabled = false;
 
-        StartCoroutine(ghostEffect.ShowGhost(5, dashTime));
+        StartCoroutine(ghostEffect.ShowGhost(5, dashTime, 0.4f));
         body.linearVelocity = Time.fixedDeltaTime * dashSpeed * dashDirection;
         yield return new WaitForSeconds(dashTime);
     
