@@ -22,9 +22,6 @@ public class Player : PlayerCore
         {Vector2.right, "Right"}
     };
 
-    private Health health;
-
-
     private void Awake()
     {
         health = GetComponent<Health>();

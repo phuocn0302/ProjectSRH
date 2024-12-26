@@ -3,6 +3,7 @@ using UnityEngine;
 
 public class PlayerCore : MonoBehaviour 
 {
+    public Health health;
     public SpriteRenderer spriteRenderer;
     public Rigidbody2D body;
     public Collider2D bodyCollider;

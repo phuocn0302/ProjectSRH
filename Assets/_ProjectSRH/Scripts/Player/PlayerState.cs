@@ -19,8 +19,6 @@ public class PlayerState : State
     public Vector2 FacingDirection => core.FacingDirection;
     public string FacingDirectionStr => core.FacingDirectionStr;
 
-    
-    
     public void Setup(PlayerCore _core)
     {
         core = _core;
