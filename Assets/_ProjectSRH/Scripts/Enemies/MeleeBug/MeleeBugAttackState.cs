@@ -26,10 +26,15 @@ public class MeleeBugAttackState : EnemyState
     {
         if (anim) animator.Play(anim.name);
 
-        Tween.Custom(body.linearVelocity, Vector2.zero, 0.3f, onValueChange: val => body.linearVelocity = val);
-        hurtboxArea.enabled = false;
+        if (body.linearVelocity != Vector2.zero)
+            Tween.Custom(
+                body != null ? body.linearVelocity : Vector2.zero, Vector2.zero, 
+                0.3f,
+                onValueChange: val => body.linearVelocity = val);
+        
         
         Tween.Color(spriteRenderer, tweenSettings).OnComplete(() =>{
+            hurtboxArea.enabled = false;
             StartCoroutine(Attack());
         }, warnIfTargetDestroyed: false);        
     }
@@ -44,14 +49,15 @@ public class MeleeBugAttackState : EnemyState
         hitboxArea.enabled = true;
 
         Vector2 direction = directionToTarget;
-
         yield return Tween.Position(body.transform, 
             body.position, 
             body.position  + -direction * 0.5f, 
             0.3f, 
             Ease.InOutBounce).ToYieldInstruction();
-        body.linearVelocity = Time.fixedDeltaTime * dashSpeed * direction;
 
+        StartCoroutine(ghostEffect.ShowGhost(5, dashTime));
+
+        body.linearVelocity = Time.fixedDeltaTime * dashSpeed * direction;
         yield return new WaitForSeconds(dashTime);
         hitboxArea.enabled = false;
 

@@ -8,6 +8,7 @@ public class Hitbox : MonoBehaviour
     [field: SerializeField] public float KnockbackAmount {get; private set;} = 1f;
     private Collider2D hitArea;
     public LayerMask target;
+    public GameObject onHitEffect;
 
     private void Awake()
     {
@@ -38,6 +39,9 @@ public class Hitbox : MonoBehaviour
 
             hurtbox.TakeKnockback(transform, KnockbackAmount);
             hurtbox.TakeDamage(damage);
+            if (onHitEffect)
+                Instantiate(onHitEffect, hurtbox.transform.position, Quaternion.identity)
+                .transform.right = (hurtbox.transform.position - hitArea.bounds.center).normalized;
         }
     }
 

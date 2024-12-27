@@ -169,3 +169,4 @@ MonoBehaviour:
   target:
     serializedVersion: 2
     m_Bits: 384
+  onHitEffect: {fileID: 9100739452416221132, guid: 69fda744c76bb534fafbe04798ecf190, type: 3}

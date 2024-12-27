@@ -143,6 +143,7 @@ MonoBehaviour:
   target:
     serializedVersion: 2
     m_Bits: 64
+  onHitEffect: {fileID: 0}
 --- !u!1 &5535976422386051403
 GameObject:
   m_ObjectHideFlags: 0
@@ -204,6 +205,8 @@ GameObject:
   - component: {fileID: 3615733655840153944}
   - component: {fileID: 4529380385586049329}
   - component: {fileID: 6367071994608456780}
+  - component: {fileID: 339268038526284134}
+  - component: {fileID: 8548041114367406224}
   m_Layer: 7
   m_Name: MeleeBug
   m_TagString: Untagged
@@ -315,7 +318,7 @@ SpriteRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: a97c105638bdf8b4a8650670310a4cd3, type: 2}
+  - {fileID: -876546973899608171, guid: 7a9e634d459925b489b60427c456e974, type: 3}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -406,10 +409,38 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ffb0cfda646b8084f81e28f941454340, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  <MaxHealth>k__BackingField: 100
+  <MaxHealth>k__BackingField: 50
   <CurrentHealth>k__BackingField: 0
   deathAnim: {fileID: 0}
-  deathEffect: {fileID: 0}
+  deathEffect: {fileID: 6782000204020052277, guid: 7c46146cf80a50b408d1d55e7bcccbf8, type: 3}
+--- !u!114 &339268038526284134
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5836530209581230262}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 44f9fdcff2a59b948bfe6dff3cdca8d2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  health: {fileID: 0}
+  flashTime: 0.2
+--- !u!114 &8548041114367406224
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5836530209581230262}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ac19fd412fa0e9042b7451b733c13208, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ghostPoolSize: 5
+  ghostMaterial: {fileID: 0}
 --- !u!1 &6051647276392961429
 GameObject:
   m_ObjectHideFlags: 0

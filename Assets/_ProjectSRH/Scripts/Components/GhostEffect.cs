@@ -10,6 +10,7 @@ public class GhostEffect : MonoBehaviour
 
     private SpriteRenderer spriteRenderer;
     private Queue<GameObject> ghostPool = new Queue<GameObject>();
+    private Queue<GameObject> spawnedObject = new Queue<GameObject>();
 
     private void Awake()
     {
@@ -21,14 +22,16 @@ public class GhostEffect : MonoBehaviour
     {
         for (int i = 0; i < _numberOfGhost; i++)
         {
-            GameObject ghost = new GameObject("GhostPoolObject");
+            GameObject ghost = new GameObject("GhostPoolObject" + gameObject.name);
             ghost.AddComponent<SpriteRenderer>();
             ghost.SetActive(false);
             ghostPool.Enqueue(ghost);
+
+            spawnedObject.Enqueue(ghost);
         }
     }
 
-    public IEnumerator ShowGhost(int _numberOfGhost, float _duration, float _ghostFadeTime)
+    public IEnumerator ShowGhost(int _numberOfGhost, float _duration, float _ghostFadeTime = 0.4f)
     {
         if (_numberOfGhost > ghostPool.Count) AddToPool(_numberOfGhost - ghostPool.Count);
 
@@ -54,6 +57,14 @@ public class GhostEffect : MonoBehaviour
             });
             
             yield return new WaitForSeconds(_duration / _numberOfGhost);
+        }
+    }
+
+    private void OnDestroy()
+    {
+        for (int i = 0; i < ghostPool.Count; i++)
+        {
+            Destroy(spawnedObject.Dequeue());
         }
     }
 }
