@@ -577,9 +577,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ac19fd412fa0e9042b7451b733c13208, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  active: 1
-  numberOfGhost: 10
-  duration: 0
+  ghostPoolSize: 10
+  ghostMaterial: {fileID: 0}
 --- !u!95 &872337424840448059
 Animator:
   serializedVersion: 7
@@ -614,6 +613,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 057d60b8641789c43803ecd4bd90e673, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  health: {fileID: 0}
   spriteRenderer: {fileID: 6026908150025621107}
   body: {fileID: 0}
   bodyCollider: {fileID: 7102252374686990928}
@@ -859,7 +859,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   IsComplete: 0
-  hitDelayTime: 0.2
+  hitDelayTime: 0.15
   hitDeltaTime: 0.2
   slashAnimator: {fileID: 6276819787094716282}
   slashContainer: {fileID: 2287863018494157573}

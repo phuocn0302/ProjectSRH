@@ -169,7 +169,7 @@ public class Player : PlayerCore
     {
         Debug.Log("Ouch");
         Time.timeScale = 0;
-        Tween.GlobalTimeScale(0, 1, 1f);
+        Tween.GlobalTimeScale(0, 1, 0.5f);
         Tween.ShakeCamera(GameObject.FindFirstObjectByType<Camera>(), 0.5f);
     }
 

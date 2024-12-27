@@ -7,7 +7,7 @@ public abstract class State : MonoBehaviour
     protected float startTime;
     public float ElapsedTime => Time.time - startTime;
 
-    public void Initialize()
+    public virtual void Initialize()
     {
         IsComplete = false;
         startTime = Time.time;

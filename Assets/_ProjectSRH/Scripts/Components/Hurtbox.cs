@@ -36,8 +36,14 @@ public class Hurtbox : MonoBehaviour
 
     private IEnumerator Iframe(float _time)
     {
-        hurtboxArea.enabled = false;
-        yield return new WaitForSeconds(_time);
+        float _elapsedTime = 0;
+        while (_elapsedTime < _time)
+        {
+            hurtboxArea.enabled = false;
+            _elapsedTime += Time.deltaTime;
+            yield return null;
+        }
+        
         hurtboxArea.enabled = true;
     }
 }
