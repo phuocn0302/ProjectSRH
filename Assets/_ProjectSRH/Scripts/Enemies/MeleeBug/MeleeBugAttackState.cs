@@ -25,13 +25,8 @@ public class MeleeBugAttackState : EnemyState
     public override void Enter()
     {
         if (anim) animator.Play(anim.name);
-
-        if (body.linearVelocity != Vector2.zero)
-            Tween.Custom(
-                body != null ? body.linearVelocity : Vector2.zero, Vector2.zero, 
-                0.3f,
-                onValueChange: val => body.linearVelocity = val);
         
+        body.linearVelocity *= 0.5f;
         
         Tween.Color(spriteRenderer, tweenSettings).OnComplete(() =>{
             hurtboxArea.enabled = false;
