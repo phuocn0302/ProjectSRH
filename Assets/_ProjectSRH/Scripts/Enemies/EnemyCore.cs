@@ -8,6 +8,7 @@ public class EnemyCore : MonoBehaviour
     public Rigidbody2D body;
     public Collider2D bodyCollider;
     public Hurtbox hurtbox;
+    public Collider2D hurtboxArea;
     public Animator animator;   
     public float moveSpeed;
     public GhostEffect ghostEffect;
@@ -35,6 +36,7 @@ public class EnemyCore : MonoBehaviour
         TryGetComponent<Collider2D>(out bodyCollider);
         TryGetComponent<Animator>(out animator);
         TryGetComponent<GhostEffect>(out ghostEffect);
+        if (hurtbox) TryGetComponent<Collider2D>(out hurtboxArea);
         
     }
 
