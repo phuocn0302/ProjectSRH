@@ -13,7 +13,6 @@ public class GunnerEnemyAttackState : EnemyState
     {
         if (anim) animator.Play(anim.name);
         StartCoroutine(Shoot());
-
     }
 
     private IEnumerator Shoot()
@@ -21,7 +20,7 @@ public class GunnerEnemyAttackState : EnemyState
         SpawnBullet();
         if (anim) animator.Play(anim.name);
         yield return new WaitForSeconds(shootCooldown + anim.length);
-        StartCoroutine(Shoot());
+        Exit();
     }
 
     private void SpawnBullet()
