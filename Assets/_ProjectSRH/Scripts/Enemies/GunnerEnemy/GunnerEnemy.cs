@@ -35,7 +35,6 @@ public class GunnerEnemy : EnemyCore
 
     private void Update()
     {
-        Debug.Log(isTargetInRange);
         if (state.IsComplete)
         {
             SelectState();
@@ -53,7 +52,7 @@ public class GunnerEnemy : EnemyCore
     {
         if (isTargetInRange)
         {
-            stateMachine.SetState(DashState);
+            stateMachine.SetState(DashState, true);
             return;
         }
         if (target)
