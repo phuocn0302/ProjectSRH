@@ -134,7 +134,7 @@ public class PlayerDrone : MonoBehaviour
     private void Die()
     {
         Tween.Scale(this.transform, 1.2f, 0f, 0.5f).OnComplete(() => {
-            Destroy(gameObject);
+            this.enabled = false;
         });
     }
 
